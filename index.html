@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X Elsa Chriseo Ronaldo</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050505;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Background supplied by the user */
+    .backdrop {
+      position: fixed;
+      inset: 0;
+      background: #050505;
+      z-index: -2;
+    }
+    .glow {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 20%, rgba(35,120,255,.15), transparent 42%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    header {
+      height: 82px;
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(0,0,0,.78);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+    .brand {
+      font-size: clamp(18px, 3vw, 28px);
+      font-weight: 900;
+      letter-spacing: .5px;
+    }
+    .brand span { color: #39a7ff; }
+
+    main {
+      width: min(1050px, 94vw);
+      margin: 42px auto 70px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 5vw, 48px);
+      text-shadow: 0 4px 24px rgba(0,0,0,.8);
+    }
+    .hero p {
+      margin: 0;
+      color: #c9c9c9;
+      font-size: 15px;
+    }
+
+    .player {
+      background: rgba(0,0,0,.78);
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 18px;
+      padding: 12px;
+      box-shadow: 0 20px 70px rgba(0,0,0,.65);
+      backdrop-filter: blur(10px);
+    }
+    video {
+      display: block;
+      width: 100%;
+      max-height: 70vh;
+      border-radius: 12px;
+      background: #000;
+    }
+
+    .bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 5px 2px;
+    }
+    .title {
+      font-weight: 800;
+      font-size: 16px;
+    }
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 15px;
+      background: #1677ff;
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    button:hover { filter: brightness(1.12); }
+
+    footer {
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 10px 15px; height: 72px; }
+      .logo { width: 50px; height: 50px; }
+      main { margin-top: 28px; }
+      .player { padding: 7px; border-radius: 13px; }
+      .bar { padding-top: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="backdrop"></div>
+  <div class="glow"></div>
+
+  <header>
+    <img class="logo" src="logo.png" alt="X Elsa Chriseo Ronaldo">
+    <div class="brand">X Elsa Chriseo Ronaldo</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>🎬 X Elsa Chriseo Ronaldo</h1>
+      <p>Trang xem video — chỉ một video duy nhất</p>
+    </section>
+
+    <section class="player">
+      <video id="movie" controls playsinline preload="metadata" poster="background.jpg">
+        <source src="video.mp4" type="video/mp4">
+        Trình duyệt của bạn không hỗ trợ phát video.
+      </video>
+      <div class="bar">
+        <div class="title">Video</div>
+        <button id="fullscreen">Toàn màn hình</button>
+      </div>
+    </section>
+
+    <footer>X Elsa Chriseo Ronaldo © 2026</footer>
+  </main>
+
+  <script>
+    const video = document.getElementById("movie");
+    document.getElementById("fullscreen").onclick = () => {
+      if (video.requestFullscreen) video.requestFullscreen();
+      else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+    };
+  </script>
+</body>
+</html>
